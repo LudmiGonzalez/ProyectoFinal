@@ -272,7 +272,7 @@ namespace proyecto_final
 							catch(FormatException){
 								Console.WriteLine();
 								Console.ForegroundColor= ConsoleColor.Red;
-								Console.WriteLine("Error. El formato ingresado no el correcto");
+								Console.WriteLine("Error. El formato ingresado no es correcto");
 								Console.ForegroundColor= ConsoleColor.White;
 								Console.WriteLine();
 								continue;
@@ -329,7 +329,7 @@ namespace proyecto_final
 															break;
 														default:
 															Console.ForegroundColor= ConsoleColor.Red;
-															Console.WriteLine("La opcion en incorrecta. Ingrese nuevamente la opcion");
+															Console.WriteLine("La opcion en incorrecta. Ingrese nuevamente una opcion");
 															Console.ForegroundColor= ConsoleColor.White;
 															continue;
 													}
@@ -363,7 +363,7 @@ namespace proyecto_final
 									}
 									if(catego==false){
 										Console.ForegroundColor= ConsoleColor.Red;
-										Console.WriteLine("Lo sentimos, actualmente no contamos con esa categoria");
+										Console.WriteLine("Lo sentimos, actualmente no contamos con esta categoria");
 										Console.ForegroundColor= ConsoleColor.White;
 										break;
 									}
@@ -443,7 +443,7 @@ namespace proyecto_final
 																		break;
 																	default:
 																		Console.ForegroundColor= ConsoleColor.Red;
-																		Console.WriteLine("La opcion en incorrecta. Ingrese nuevamente la opcion");
+																		Console.WriteLine("La opcion es incorrecta. Ingrese nuevamente una opcion");
 																		Console.ForegroundColor= ConsoleColor.White;
 																		continue;
 																}
@@ -465,7 +465,7 @@ namespace proyecto_final
 													}
 													if (al==false) {
 														Console.ForegroundColor= ConsoleColor.Red;
-														Console.WriteLine("No existe un alumno con ese dni");
+														Console.WriteLine("No existe un alumno con ese dni en esta categoria");
 														Console.ForegroundColor= ConsoleColor.White;
 													}
 												}
@@ -535,7 +535,7 @@ namespace proyecto_final
 													catch(FormatException){
 														Console.WriteLine();
 														Console.ForegroundColor= ConsoleColor.Red;
-														Console.WriteLine("Error. El formato ingresado no el correcto");
+														Console.WriteLine("Error. El formato ingresado no es correcto");
 														Console.ForegroundColor= ConsoleColor.White;
 														Console.WriteLine();
 														continue;
@@ -606,7 +606,7 @@ namespace proyecto_final
 													}
 													if (al==false) {
 														Console.ForegroundColor= ConsoleColor.Red;
-														Console.WriteLine("No existe un alumno con ese dni");
+														Console.WriteLine("No existe un alumno con ese dni en la categoria que desea efectuar el pago");
 														Console.ForegroundColor= ConsoleColor.White;
 													}
 												}
@@ -821,7 +821,7 @@ namespace proyecto_final
 														cuota= float.Parse(Console.ReadLine());
 														Console.Write("Ingrese el dia de entrenamiento (00/00/0000): ");
 														d= Console.ReadLine();
-														Console.Write("Ingrese el hora (00:00 AM): ");
+														Console.Write("Ingrese la hora (00:00 AM): ");
 														h= Console.ReadLine();
 														
 													}
@@ -859,7 +859,7 @@ namespace proyecto_final
 												
 											default:
 												Console.ForegroundColor= ConsoleColor.Red;
-												Console.WriteLine("La opcion en incorrecta. Ingrese nuevamente una opcion");
+												Console.WriteLine("La opcion es incorrecta. Ingrese nuevamente una opcion");
 												Console.ForegroundColor= ConsoleColor.White;
 												continue;
 										}
@@ -912,7 +912,7 @@ namespace proyecto_final
 												cuota= float.Parse(Console.ReadLine());
 												Console.Write("Ingrese el dia de entrenamiento (00/00/0000): ");
 												d= Console.ReadLine();
-												Console.Write("Ingrese el hora (00:00 AM): ");
+												Console.Write("Ingrese la hora (00:00 AM): ");
 												h= Console.ReadLine();
 												
 											}
@@ -933,7 +933,7 @@ namespace proyecto_final
 											
 											Console.WriteLine();
 											Console.ForegroundColor= ConsoleColor.Green;
-											Console.WriteLine("El deporte y la categoria han sido añadidos con exito");
+											Console.WriteLine("El deporte y la categoria han sido añadido con exito");
 											Console.WriteLine("");
 											Console.ForegroundColor= ConsoleColor.White;
 											
@@ -949,7 +949,7 @@ namespace proyecto_final
 											
 										default:
 											Console.ForegroundColor= ConsoleColor.Red;
-											Console.WriteLine("La opcion en incorrecta. Ingrese nuevamente la opcion");
+											Console.WriteLine("La opcion es incorrecta. Ingrese nuevamente una opcion");
 											Console.ForegroundColor= ConsoleColor.White;
 											continue;
 									}
