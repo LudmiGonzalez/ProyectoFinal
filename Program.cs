@@ -34,8 +34,14 @@ namespace proyecto_final
 			Entrenador entrenador2= new Entrenador("Sebastian","Torres",37985416,150000);
 			Entrenador entrenador3= new Entrenador("Santiago","Banzas",40987562,100000);
 			categoria.agregarEntrenador(entrenador);
+			categoria.nomEntr_=entrenador.nombre_;
+			categoria.dniEntr_=entrenador.dni_;
 			categoria2.agregarEntrenador(entrenador2);
+			categoria2.nomEntr_=entrenador2.nombre_;
+			categoria2.dniEntr_=entrenador2.dni_;
 			categoria3.agregarEntrenador(entrenador3);
+			categoria3.nomEntr_=entrenador3.nombre_;
+			categoria3.dniEntr_=entrenador3.dni_;
 			
 
 			
