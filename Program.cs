@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace proyecto_final
 {
@@ -123,6 +123,8 @@ namespace proyecto_final
 													catego=true;
 													Entrenador entrenador4= new Entrenador(nomEn,apeEn,dni,salario);
 													categ.agregarEntrenador(entrenador4);
+													categ.nomEntr_=nom;
+													categ.dniEntr_=dni;
 													Console.WriteLine("");
 													Console.ForegroundColor= ConsoleColor.Green;
 													Console.WriteLine("Entrenador añadido con exito");
@@ -177,7 +179,7 @@ namespace proyecto_final
 										Console.WriteLine("Alevin (11-12)");
 										Console.WriteLine("Infantil (13-14)");
 										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juveni (17-19)");
+										Console.WriteLine("Juvenil (17-19)");
 										Console.WriteLine("");
 										Console.ForegroundColor= ConsoleColor.White;
 										
@@ -188,6 +190,7 @@ namespace proyecto_final
 											if(cat == categ.tipo_.ToUpper()){
 												if(e.existeCategoria(categ)){
 													catego=true;
+													bool existe=false;
 													Console.WriteLine("Ingrese el dni del entrenador");
 													
 													try{
@@ -206,8 +209,11 @@ namespace proyecto_final
 													
 													foreach (Entrenador entrena in categ.entrenadores_) {
 														if (dni == entrena.dni_) {
+															existe=true;
 															categ.eliminarEntrenador(entrena);
-															
+															categ.nomEntr_=null;
+												        	        categ.dniEntr_=0;
+												        	
 															Console.WriteLine();
 															Console.ForegroundColor= ConsoleColor.Green;
 															Console.WriteLine("El entrenador se ha eliminado con exito");
@@ -216,6 +222,12 @@ namespace proyecto_final
 															break;
 														}
 													}
+													
+													if(existe==false){
+														Console.ForegroundColor= ConsoleColor.Red;
+														Console.WriteLine("El dni no coincide con el de algun entrenador en esta categoria");
+														Console.ForegroundColor= ConsoleColor.White;
+														break;}
 													
 												}
 											}
@@ -281,7 +293,7 @@ namespace proyecto_final
 									Console.WriteLine("Alevin (11-12)");
 									Console.WriteLine("Infantil (13-14)");
 									Console.WriteLine("Cadetes (15-16)");
-									Console.WriteLine("Juveni (17-19)");
+									Console.WriteLine("Juvenil (17-19)");
 									Console.WriteLine("____________________________________________");
 									Console.WriteLine();
 									Console.ForegroundColor= ConsoleColor.White;
@@ -387,7 +399,7 @@ namespace proyecto_final
 										Console.WriteLine("Alevin (11-12)");
 										Console.WriteLine("Infantil (13-14)");
 										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juveni (17-19)");
+										Console.WriteLine("Juvenil (17-19)");
 										Console.WriteLine("");
 										Console.ForegroundColor= ConsoleColor.White;
 										
@@ -503,7 +515,7 @@ namespace proyecto_final
 										Console.WriteLine("Alevin (11-12)");
 										Console.WriteLine("Infantil (13-14)");
 										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juveni (17-19)");
+										Console.WriteLine("Juvenil (17-19)");
 										Console.WriteLine("");
 										Console.ForegroundColor= ConsoleColor.White;
 										
