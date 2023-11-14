@@ -1,1 +1,1 @@
-# ProyectoFinal todavía falta cosas por arreglar y terminar
+# ProyectoFinal terminado (sujeto a modificaciones)
