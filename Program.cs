@@ -1140,7 +1140,7 @@ namespace proyecto_final
 							Console.Clear();
 							Console.WriteLine();
 							Console.ForegroundColor= ConsoleColor.Gray;
-							Console.WriteLine("Esperamos verlos pronto, un saludo. Club Deportivo MALU");
+							Console.WriteLine("Esperamos verlo pronto, un saludo. Club Deportivo MALU");
 							Console.WriteLine();
 							Console.WriteLine("MMMMMMMMMWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 							Console.WriteLine("MMMMMMMMMMMMMMMMMMMMMMMMW0     KWMMMMMMM");
