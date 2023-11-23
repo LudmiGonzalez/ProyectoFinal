@@ -691,6 +691,24 @@ namespace proyecto_final
 							break;
 							
 						case 5:
+//							Console.WriteLine("----------------------------------------------------------");
+//							Console.WriteLine("Alumnos inscriptos en el club");
+//							Console.WriteLine();
+//							
+//							
+//							foreach (Deporte de in club.verDatos()) {
+//								foreach (Alumno a in de.verDatos()) {
+//									Console.WriteLine();
+//									Console.ForegroundColor= ConsoleColor.Magenta;                //Muestra todos los alumnos inscriptos en el club
+//									a.imprimir();
+//									Console.WriteLine("Deporte: "+a.depor_.nombre_);
+//									Console.WriteLine("Categoria: "+a.cate_.tipo_);
+//									
+//									Console.ForegroundColor= ConsoleColor.White;
+//									Console.WriteLine();
+//								}
+//							}
+//							Console.WriteLine("----------------------------------------------------------");
 							Console.Clear();
 							Console.WriteLine("Para pagar la cuota complete los datos requeridos");
 							Console.WriteLine();
@@ -717,7 +735,7 @@ namespace proyecto_final
 										Console.WriteLine("Categorias");
 										Console.WriteLine();
 										foreach (Categoria c in e.verDatosCategoria()) {
-											Console.ForegroundColor= ConsoleColor.DarkCyan;
+											Console.ForegroundColor= ConsoleColor.DarkCyan;             
 											Console.WriteLine(c.tipo_.ToUpper());
 											Console.ForegroundColor= ConsoleColor.White;
 										}
@@ -741,7 +759,7 @@ namespace proyecto_final
 														
 														Console.WriteLine();
 														Console.ForegroundColor= ConsoleColor.Magenta;
-														a.imprimir();
+														a.imprimir();                                           //Muestra solo los alumnos inscriptos en esa categoria
 														Console.WriteLine("Deporte: "+a.depor_.nombre_);
 														Console.WriteLine("Categoria: "+a.cate_.tipo_);
 														
