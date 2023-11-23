@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace proyecto_final
 {
@@ -27,9 +27,9 @@ namespace proyecto_final
 			DateTime diaHoraEntr = DateTime.Parse("20/11/2023 17:00 PM");
 			DateTime diaHoraEntr2 = DateTime.Parse("24/11/2023 14:00 PM");
 			DateTime diaHoraEntr3 = DateTime.Parse("21/11/2023 18:00 PM");
-			Categoria categoria= new Categoria("benjamin",25,3500,diaHoraEntr);
-			Categoria categoria2= new Categoria("juvenil",15,5000,diaHoraEntr2);
-			Categoria categoria3= new Categoria("infantil",12,3000,diaHoraEntr3);
+			Categoria categoria= new Categoria("benjamin (8-10)",25,3500,diaHoraEntr);
+			Categoria categoria2= new Categoria("juvenil (17-19)",15,5000,diaHoraEntr2);
+			Categoria categoria3= new Categoria("infantil (13-14)",12,3000,diaHoraEntr3);
 			deporte.agregarCategoria(categoria);
 			deporte2.agregarCategoria(categoria2);
 			deporte3.agregarCategoria(categoria3);
@@ -78,6 +78,19 @@ namespace proyecto_final
 					switch(opcion){
 							case 1: 
 							Console.Clear();
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine();
+							
 							Console.Write("Deporte del que sera entrenador: ");
 							nom= Console.ReadLine().ToUpper();
 							
@@ -87,17 +100,18 @@ namespace proyecto_final
 								if(nom == e.nombre_.ToUpper()){
 									if(club.existe(e)){
 										sigue=true;
-										Console.ForegroundColor= ConsoleColor.DarkCyan;
+
 										Console.WriteLine("");
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("Categorias");
-										Console.WriteLine("Prebenjamin(5-7)");
-										Console.WriteLine("Benjamin(8-10)");
-										Console.WriteLine("Alevin (11-12)");
-										Console.WriteLine("Infantil (13-14)");
-										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juvenil (17-19)");
+										Console.WriteLine();
+										foreach (Categoria c in e.verDatosCategoria()) {
+											Console.ForegroundColor= ConsoleColor.DarkCyan;
+											Console.WriteLine(c.tipo_.ToUpper());
+											Console.ForegroundColor= ConsoleColor.White;
+										}
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("");
-										Console.ForegroundColor= ConsoleColor.White;
 										Console.Write("Ingrese la categoria: ");
 										cat= Console.ReadLine().ToUpper();
 										
@@ -216,6 +230,18 @@ namespace proyecto_final
 							
 						case 2:
 							Console.Clear();
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine();
 							Console.Write("Deporte al que pertenece el entrenador: ");
 							nom= Console.ReadLine().ToUpper();
 							
@@ -224,27 +250,42 @@ namespace proyecto_final
 								if(nom == e.nombre_.ToUpper()){
 									if(club.existe(e)){
 										sigue=true;
-										Console.ForegroundColor= ConsoleColor.DarkCyan;
-										Console.WriteLine("");
-										Console.WriteLine("Categorias");
-										Console.WriteLine("Prebenjamin(5-7)");
-										Console.WriteLine("Benjamin(8-10)");
-										Console.WriteLine("Alevin (11-12)");
-										Console.WriteLine("Infantil (13-14)");
-										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juvenil (17-19)");
-										Console.WriteLine("");
-										Console.ForegroundColor= ConsoleColor.White;
 										
+										Console.WriteLine("");
+										Console.WriteLine("----------------------------------------------------------");
+										Console.WriteLine("Categorias");
+										Console.WriteLine();
+										foreach (Categoria c in e.verDatosCategoria()) {
+											Console.ForegroundColor= ConsoleColor.DarkCyan;
+											Console.WriteLine(c.tipo_.ToUpper());
+											Console.ForegroundColor= ConsoleColor.White;
+										}
+										Console.WriteLine("----------------------------------------------------------");
+										Console.WriteLine("");
 										Console.Write("Ingrese la categoria a la que pertenece el entrenador: ");
 										cat= Console.ReadLine().ToUpper();
 										foreach (Categoria categ in e.verDatosCategoria()) {
 											
+											
+											
 											if(cat == categ.tipo_.ToUpper()){
+												Console.WriteLine();
+												catego=true;
+												if(categ.entrenad_!=null){
+												Console.WriteLine("Entrenador de la categoria");
+												Console.WriteLine();
+												Console.ForegroundColor= ConsoleColor.Magenta;
+												
+												categ.entrenad_.imprimir();
+												
+												Console.ForegroundColor= ConsoleColor.White;
+												Console.WriteLine();
 												if(e.existeCategoria(categ)){
-													catego=true;
+													
+													
 													bool existe=false;
-													Console.WriteLine("Ingrese el dni del entrenador");
+													
+													Console.WriteLine("Ingrese el dni del entrenador para eliminarlo");
 													
 													try{
 														Console.Write("Dni: ");
@@ -289,12 +330,19 @@ namespace proyecto_final
 													
 													if(existe==false){
 														Console.ForegroundColor= ConsoleColor.Red;
-														Console.WriteLine("El dni no coincide con el de algun entrenador en esta categoria");
+														Console.WriteLine("El dni no coincide con el del entrenador de esta categoria");
 														Console.ForegroundColor= ConsoleColor.White;
 														break;}
 													
 												}
+												}
+												else{
+													Console.ForegroundColor= ConsoleColor.Red;
+													Console.WriteLine("No hay entrenador en esta categoria");
+													Console.ForegroundColor= ConsoleColor.White;
+												}
 											}
+											
 											
 										}
 										if(catego==false){
@@ -355,25 +403,35 @@ namespace proyecto_final
 								continue;
 							}
 							
-							
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine();
 							Console.Write("Deporte: ");
 							nom= Console.ReadLine().ToUpper();
 							foreach (Deporte e in club.verDatos()){
 								
 								if(nom== e.nombre_.ToUpper() && club.existe(e)){
 									sigue=true;
-									Console.ForegroundColor= ConsoleColor.DarkCyan;
-									Console.WriteLine("____________________________________________");
+									Console.WriteLine("");
+									Console.WriteLine("----------------------------------------------------------");
 									Console.WriteLine("Categorias");
-									Console.WriteLine("Prebenjamin(5-7)");
-									Console.WriteLine("Benjamin(8-10)");
-									Console.WriteLine("Alevin (11-12)");
-									Console.WriteLine("Infantil (13-14)");
-									Console.WriteLine("Cadetes (15-16)");
-									Console.WriteLine("Juvenil (17-19)");
-									Console.WriteLine("____________________________________________");
 									Console.WriteLine();
-									Console.ForegroundColor= ConsoleColor.White;
+									foreach (Categoria c in e.verDatosCategoria()) {
+										Console.ForegroundColor= ConsoleColor.DarkCyan;
+										Console.WriteLine(c.tipo_.ToUpper());
+										Console.ForegroundColor= ConsoleColor.White;
+									}
+									Console.WriteLine("----------------------------------------------------------");
+									Console.WriteLine("");
 									
 									Console.Write("Ingrese la categoria segun la edad del alumno: ");
 									cat= Console.ReadLine().ToUpper();
@@ -476,24 +534,36 @@ namespace proyecto_final
 						case 4:
 							Console.Clear();
 							
-							Console.Write("Deporte al que se quiere dar de baja: ");
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine();
+							Console.Write("Deporte al que se quiere dar de baja el alumno: ");
 							nom= Console.ReadLine().ToUpper();
 							foreach (Deporte e in club.verDatos()){
 								
 								if(nom == e.nombre_.ToUpper()){
 									if(club.existe(e)){
 										sigue=true;
-										Console.ForegroundColor= ConsoleColor.DarkCyan;
 										Console.WriteLine("");
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("Categorias");
-										Console.WriteLine("Prebenjamin(5-7)");
-										Console.WriteLine("Benjamin(8-10)");
-										Console.WriteLine("Alevin (11-12)");
-										Console.WriteLine("Infantil (13-14)");
-										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juvenil (17-19)");
+										Console.WriteLine();
+										foreach (Categoria c in e.verDatosCategoria()) {
+											Console.ForegroundColor= ConsoleColor.DarkCyan;
+											Console.WriteLine(c.tipo_.ToUpper());
+											Console.ForegroundColor= ConsoleColor.White;
+										}
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("");
-										Console.ForegroundColor= ConsoleColor.White;
 										
 										Console.Write("Ingrese la categoria a la que pertenece el alumno: ");
 										cat= Console.ReadLine().ToUpper();
@@ -506,6 +576,23 @@ namespace proyecto_final
 													
 													catego=true;
 													al =false;
+													Console.WriteLine("----------------------------------------------------------");
+													Console.WriteLine("Alumnos inscriptos en esta categoria");
+													Console.WriteLine();
+													foreach (Alumno a in categ.verDatos()) {
+														
+														Console.WriteLine();
+														Console.ForegroundColor= ConsoleColor.Magenta;
+														a.imprimir();
+														Console.WriteLine("Deporte: "+a.depor_.nombre_);
+														Console.WriteLine("Categoria: "+a.cate_.tipo_);
+														
+														Console.ForegroundColor= ConsoleColor.White;
+														Console.WriteLine();
+													}
+													
+													Console.WriteLine("----------------------------------------------------------");
+													Console.WriteLine();
 													try{
 														Console.Write("Dni del alumno: ");
 														dni= int.Parse(Console.ReadLine());
@@ -606,8 +693,18 @@ namespace proyecto_final
 						case 5:
 							Console.Clear();
 							Console.WriteLine("Para pagar la cuota complete los datos requeridos");
-							
-							
+							Console.WriteLine();
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
 							Console.Write("Deporte al que esta inscripto: ");
 							nom= Console.ReadLine().ToUpper();
 							foreach (Deporte e in club.verDatos()){
@@ -615,17 +712,17 @@ namespace proyecto_final
 								if(nom == e.nombre_.ToUpper()){
 									if(club.existe(e)){
 										sigue=true;
-										Console.ForegroundColor= ConsoleColor.DarkCyan;
 										Console.WriteLine("");
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("Categorias");
-										Console.WriteLine("Prebenjamin(5-7)");
-										Console.WriteLine("Benjamin(8-10)");
-										Console.WriteLine("Alevin (11-12)");
-										Console.WriteLine("Infantil (13-14)");
-										Console.WriteLine("Cadetes (15-16)");
-										Console.WriteLine("Juvenil (17-19)");
+										Console.WriteLine();
+										foreach (Categoria c in e.verDatosCategoria()) {
+											Console.ForegroundColor= ConsoleColor.DarkCyan;
+											Console.WriteLine(c.tipo_.ToUpper());
+											Console.ForegroundColor= ConsoleColor.White;
+										}
+										Console.WriteLine("----------------------------------------------------------");
 										Console.WriteLine("");
-										Console.ForegroundColor= ConsoleColor.White;
 										
 										Console.Write("Ingrese la categoria a la que pertenece el alumno: ");
 										cat= Console.ReadLine().ToUpper();
@@ -633,9 +730,27 @@ namespace proyecto_final
 										foreach (Categoria categ in e.verDatosCategoria()) {
 											
 											if(cat == categ.tipo_.ToUpper()){
+												
 												if(e.existeCategoria(categ)){
 													catego=true;
 													al =false;
+													Console.WriteLine("----------------------------------------------------------");
+													Console.WriteLine("Alumnos inscriptos en esta categoria");
+													Console.WriteLine();
+													foreach (Alumno a in categ.verDatos()) {
+														
+														Console.WriteLine();
+														Console.ForegroundColor= ConsoleColor.Magenta;
+														a.imprimir();
+														Console.WriteLine("Deporte: "+a.depor_.nombre_);
+														Console.WriteLine("Categoria: "+a.cate_.tipo_);
+														
+														Console.ForegroundColor= ConsoleColor.White;
+														Console.WriteLine();
+													}
+													
+													Console.WriteLine("----------------------------------------------------------");
+													Console.WriteLine();
 													try{
 														Console.Write("Dni del alumno: ");
 														dni= int.Parse(Console.ReadLine());
@@ -1095,7 +1210,19 @@ namespace proyecto_final
 							
 						case 9:
 							Console.Clear();
-							Console.Write("Nombre del deporte: ");
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine("Deportes existentes en el club");
+							Console.WriteLine();
+							foreach (Deporte de in club.verDatos()) {
+								
+								Console.ForegroundColor= ConsoleColor.Magenta;
+								Console.WriteLine(de.nombre_);
+								Console.ForegroundColor= ConsoleColor.White;
+								
+							}
+							Console.WriteLine("----------------------------------------------------------");
+							Console.WriteLine();
+							Console.Write("Nombre del deporte que desea eliminar: ");
 							nom= Console.ReadLine().ToUpper();
 							
 							foreach (Deporte depo in club.verDatos()) {
