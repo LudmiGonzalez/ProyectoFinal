@@ -808,10 +808,12 @@ namespace proyecto_final
 															if(montoCuota== categ.cuota_){
 																if (alumn.socio_== true) {
 																	
-																	float descuento,precioFinal;
+																	float descuento,precioFinal,vuelto;
 																	descuento= (montoCuota * 30)/100;
 																	precioFinal= montoCuota - descuento;
+																	vuelto= montoCuota -precioFinal;
 																	alumn.mesPago_= DateTime.Now;
+																	
 																	// alumn.mesPago_= DateTime.Parse("16/11/2023"); //para la simulacion
 																	
 																	
@@ -819,6 +821,7 @@ namespace proyecto_final
 																	Console.ForegroundColor= ConsoleColor.Green;
 																	Console.WriteLine("Se le ha aplicado un descuento del 30% por ser socio");
 																	Console.WriteLine("Monto final pagado: "+precioFinal);
+																	Console.WriteLine("Cambio: "+vuelto);
 																	
 																}
 																if (alumn.socio_== false) {
